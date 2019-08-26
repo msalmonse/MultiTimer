@@ -6,16 +6,18 @@
 //  Copyright © 2019 mesme. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
-let timerPublisher = Timer.publish(every: 0.1, on: .main, in: .default)
+let timerPublisher = Timer.publish(every: 0.25, on: .main, in: .default)
 
 enum TimerStatus {
     case active, inactive, ended
 }
 
-class SingleTimer: ObservableObject {
+class SingleTimer: ObservableObject, Identifiable {
+    var id = UUID()
+
     @Published
     var status: TimerStatus = .inactive
 
@@ -39,15 +41,16 @@ class SingleTimer: ObservableObject {
 
     func pause() {
         status = .inactive
+        tick?.cancel()
     }
 
-    func resume() {
-        endDate = Date() + timeLeft
-        status = .active
-    }
-
-    func start() {
-        tick = timerPublisher.sink(receiveValue: { [weak self] in self?.update($0) })
+    func resume() -> SingleTimer {
+        if status == .inactive {
+            endDate = Date() + timeLeft
+            tick = timerPublisher.autoconnect().sink(receiveValue: { [weak self] in self?.update($0) })
+            status = .active
+        }
+        return self
     }
 
     func end() {
@@ -59,6 +62,8 @@ class SingleTimer: ObservableObject {
         self.duration = duration
         self.timeLeft = duration
         self.endDate = Date() + duration
-        self.status = .active
+        self.status = .inactive
     }
 }
+
+typealias TimerList = [SingleTimer]

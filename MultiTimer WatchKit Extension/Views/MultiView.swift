@@ -8,9 +8,47 @@
 
 import SwiftUI
 
+fileprivate func blinkOn(_ now: Double) -> Bool {
+    let blinkRate = 1.6
+    return now.truncatingRemainder(dividingBy: blinkRate)/blinkRate > 0.5
+}
+
 struct MultiView: View {
+    @State var timerList: TimerList = [
+        SingleTimer(100).resume(),
+        SingleTimer(10).resume(),
+        SingleTimer(256.3).resume()
+    ]
+    @State var colorToggle: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 1) {
+            ForEach(timerList) { timer in
+                SingleView(timer: timer, toggle: self.$colorToggle)
+            }
+        }
+        .onReceive(
+            timerPublisher.autoconnect(),
+            perform: { self.colorToggle = blinkOn($0.timeIntervalSince1970) }
+        )
+    }
+}
+
+struct SingleView: View {
+    @ObservedObject var timer: SingleTimer
+    @Binding var toggle: Bool
+
+    func nowColor() -> Color {
+        switch timer.status {
+        case .active: return .primary
+        case .inactive: return .secondary
+        case .ended: return toggle ? .red : .secondary
+        }
+    }
+
+    var body: some View {
+        formattedTimeInterval(timer.timeLeft)
+        .foregroundColor(nowColor())
     }
 }
 

@@ -21,6 +21,7 @@
 		C4333C4B2313C4A100E3A504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4333C4A2313C4A100E3A504 /* Preview Assets.xcassets */; };
 		C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5C2313C77C00E3A504 /* MultiView.swift */; };
 		C4333C5F2313C83500E3A504 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5E2313C83500E3A504 /* Timer.swift */; };
+		C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		C4333C4D2313C4A100E3A504 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C4333C5C2313C77C00E3A504 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
 		C4333C5E2313C83500E3A504 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				C4333C5C2313C77C00E3A504 /* MultiView.swift */,
+				C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
 				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
 				C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */,
+				C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */,
 				C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */,
 				C4333C5F2313C83500E3A504 /* Timer.swift in Sources */,
 			);
@@ -555,7 +559,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -567,7 +571,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

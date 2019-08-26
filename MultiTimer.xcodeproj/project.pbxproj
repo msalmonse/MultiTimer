@@ -19,6 +19,8 @@
 		C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C452313C49F00E3A504 /* ComplicationController.swift */; };
 		C4333C482313C4A100E3A504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4333C472313C4A100E3A504 /* Assets.xcassets */; };
 		C4333C4B2313C4A100E3A504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4333C4A2313C4A100E3A504 /* Preview Assets.xcassets */; };
+		C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5C2313C77C00E3A504 /* MultiView.swift */; };
+		C4333C5F2313C83500E3A504 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5E2313C83500E3A504 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		C4333C4A2313C4A100E3A504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C4333C4C2313C4A100E3A504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4333C4D2313C4A100E3A504 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C4333C5C2313C77C00E3A504 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
+		C4333C5E2313C83500E3A504 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,16 +129,18 @@
 		C4333C3A2313C49F00E3A504 /* MultiTimer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C4333C602313C84100E3A504 /* Models */,
+				C4333C472313C4A100E3A504 /* Assets.xcassets */,
+				C4333C452313C49F00E3A504 /* ComplicationController.swift */,
 				C4333C3B2313C49F00E3A504 /* ContentView.swift */,
-				C4333C3D2313C49F00E3A504 /* HostingController.swift */,
 				C4333C3F2313C49F00E3A504 /* ExtensionDelegate.swift */,
+				C4333C3D2313C49F00E3A504 /* HostingController.swift */,
+				C4333C4C2313C4A100E3A504 /* Info.plist */,
 				C4333C412313C49F00E3A504 /* NotificationController.swift */,
 				C4333C432313C49F00E3A504 /* NotificationView.swift */,
-				C4333C452313C49F00E3A504 /* ComplicationController.swift */,
-				C4333C472313C4A100E3A504 /* Assets.xcassets */,
-				C4333C4C2313C4A100E3A504 /* Info.plist */,
-				C4333C4D2313C4A100E3A504 /* PushNotificationPayload.apns */,
 				C4333C492313C4A100E3A504 /* Preview Content */,
+				C4333C4D2313C4A100E3A504 /* PushNotificationPayload.apns */,
+				C4333C5B2313C75200E3A504 /* Views */,
 			);
 			path = "MultiTimer WatchKit Extension";
 			sourceTree = "<group>";
@@ -147,6 +153,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C4333C5B2313C75200E3A504 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4333C5C2313C77C00E3A504 /* MultiView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4333C602313C84100E3A504 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4333C5E2313C83500E3A504 /* Timer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +178,7 @@
 			buildPhases = (
 				C4333C212313C49900E3A504 /* Resources */,
 				C4333C572313C4A100E3A504 /* Embed Watch Content */,
+				C4333C612313DF5300E3A504 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,6 +293,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C4333C612313DF5300E3A504 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4333C322313C49F00E3A504 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -280,7 +323,9 @@
 				C4333C422313C49F00E3A504 /* NotificationController.swift in Sources */,
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
 				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
+				C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */,
 				C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */,
+				C4333C5F2313C83500E3A504 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

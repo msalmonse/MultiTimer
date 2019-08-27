@@ -10,8 +10,8 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @EnvironmentObject var timers: TimersList
     @ObservedObject var timer: SingleTimer
+    @ObservedObject var timers: TimersList
 
     func dismiss() {
         mode.wrappedValue.dismiss()
@@ -54,8 +54,9 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     @ObservedObject static var timer = SingleTimer(10)
+    @ObservedObject static var timers = TimersList()
 
     static var previews: some View {
-        DetailView(timer: timer)
+        DetailView(timer: timer, timers: timers)
     }
 }

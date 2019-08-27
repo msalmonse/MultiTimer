@@ -16,8 +16,7 @@ struct ContentView: View {
     ])
 
     var body: some View {
-        MultiView()
-        .environmentObject(timers)
+        MultiView(timers: timers)
     }
 }
 

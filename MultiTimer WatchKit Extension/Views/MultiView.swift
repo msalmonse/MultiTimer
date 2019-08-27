@@ -16,17 +16,23 @@ fileprivate func blinkOn(_ now: Double) -> Bool {
 
 struct MultiView: View {
     @State var colorToggle: Bool = false
-    @EnvironmentObject var timers: TimersList
+    @ObservedObject var timers: TimersList
 
     var body: some View {
         VStack(spacing: 1) {
-            List(timers.list) { timer in
-                Spacer()
-                NavigationLink(
-                    destination: DetailView(timer: timer).environmentObject(self.timers),
-                    label: { SingleView(timer: timer, toggle: self.$colorToggle) }
-                )
-                Spacer()
+            List {
+                ForEach(timers.list) { timer in
+                    HStack {
+                        Spacer()
+                        NavigationLink(
+                            destination: DetailView(timer: timer, timers: self.timers),
+                            label: { SingleView(timer: timer, toggle: self.$colorToggle) }
+                        )
+                        Spacer()
+                    }
+                    .listRowPlatterColor(timer.color)
+                    .frame(height: 25)
+                }
             }
             .listStyle(CarouselListStyle())
             .onReceive(
@@ -35,7 +41,7 @@ struct MultiView: View {
             )
 
             NavigationLink(
-                destination: AddTimer().environmentObject(timers),
+                destination: AddTimer(timers: timers),
                 label: { Text("Add Timer").font(.caption) }
             )
         }
@@ -61,7 +67,8 @@ struct SingleView: View {
 }
 
 struct MultiView_Previews: PreviewProvider {
+    @ObservedObject static var timers = TimersList()
     static var previews: some View {
-        MultiView()
+        MultiView(timers: timers)
     }
 }

@@ -13,7 +13,7 @@ fileprivate let maxDuration = 60.0
 
 struct AddTimer: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @EnvironmentObject var timers: TimersList
+    @ObservedObject var timers: TimersList
     @State var duration: Double = minDuration
 
     func dismiss() {
@@ -35,7 +35,8 @@ struct AddTimer: View {
 }
 
 struct AddTimer_Previews: PreviewProvider {
+    @ObservedObject static var timers = TimersList()
     static var previews: some View {
-        AddTimer()
+        AddTimer(timers: timers)
     }
 }

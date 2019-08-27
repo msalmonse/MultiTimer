@@ -25,6 +25,8 @@ class SingleTimer: ObservableObject, Identifiable {
     let duration: TimeInterval
     var endDate: Date
 
+    let color: Color
+
     var tick: AnyCancellable? = nil
 
     private func update(_ now: Date) {
@@ -78,11 +80,21 @@ class SingleTimer: ObservableObject, Identifiable {
         tick = nil
     }
 
-    init(_ duration: TimeInterval) {
+    init(_ duration: TimeInterval, _ color: Color = .clear) {
+        // random double between 0 and 1
+        func rand() -> Double {
+            return Double.random(in: 0.0...1.0)
+        }
+
         self.duration = duration
         self.timeLeft = duration
         self.endDate = Date() + duration
         self.status = .inactive
+        if color != .clear {
+            self.color = color
+        } else {
+            self.color = Color(red: rand(), green: rand(), blue: rand(), opacity: 1.0)
+        }
     }
 
     deinit {

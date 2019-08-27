@@ -497,6 +497,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -520,6 +521,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -538,6 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				IBSC_MODULE = MultiTimer_WatchKit_Extension;
 				INFOPLIST_FILE = "MultiTimer WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -556,6 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				IBSC_MODULE = MultiTimer_WatchKit_Extension;
 				INFOPLIST_FILE = "MultiTimer WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

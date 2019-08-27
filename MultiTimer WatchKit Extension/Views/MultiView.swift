@@ -20,15 +20,23 @@ struct MultiView: View {
 
     var body: some View {
         VStack(spacing: 1) {
-            ForEach(timers.list) { timer in
+            List(timers.list) { timer in
+                Spacer()
                 NavigationLink(
                     destination: DetailView(timer: timer),
                     label: { SingleView(timer: timer, toggle: self.$colorToggle) }
                 )
+                Spacer()
             }
+            .listStyle(CarouselListStyle())
             .onReceive(
                 Timer.publish(every: blinkRate/4.0, on: .main, in: .default).autoconnect(),
                 perform: { self.colorToggle = blinkOn($0.timeIntervalSince1970) }
+            )
+
+            NavigationLink(
+                destination: AddTimer().environmentObject(timers),
+                label: { Text("Add Timer") }
             )
         }
     }

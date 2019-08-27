@@ -26,8 +26,8 @@ func formattedTimeInterval(_ interval: TimeInterval) -> some View {
     // determine the correct image
     func namedImage(_ value: Int, _ divisor: Int = 1, zeroes: Bool = true) -> some View {
         let result = (value/divisor)
-        let name = !zeroes && result == 0 ? "square" : nameList[result % 10]
-        return Image(systemName: name)
+        if !zeroes && result == 0 { return Image(systemName: "square").opacity(0.2) }
+        return Image(systemName: nameList[result % 10]).opacity(1.0)
     }
 
     let seconds = Int(interval.truncatingRemainder(dividingBy: 60.0))
@@ -37,7 +37,7 @@ func formattedTimeInterval(_ interval: TimeInterval) -> some View {
             namedImage(minutes, 100, zeroes: false)
             namedImage(minutes, 10, zeroes: false)
             namedImage(minutes)
-            Text(":")
+            Text(":").bold().padding(.horizontal, 2)
             namedImage(seconds, 10)
             namedImage(seconds)
         }

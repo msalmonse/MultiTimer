@@ -14,6 +14,10 @@ class TimersList: ObservableObject, Identifiable {
     @Published
     var list: [SingleTimer]
 
+    func addTimer(_ duration: TimeInterval) {
+        list.append(SingleTimer(duration).resume())
+    }
+
     init(_ list: [SingleTimer] = []) {
         self.list = list
     }

@@ -24,6 +24,7 @@
 		C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */; };
 		C4333C652314F00900E3A504 /* TimersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C642314F00800E3A504 /* TimersList.swift */; };
 		C4333C672314F29F00E3A504 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C662314F29F00E3A504 /* DetailView.swift */; };
+		C4333C692315207100E3A504 /* AddTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C682315207100E3A504 /* AddTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		C4333C642314F00800E3A504 /* TimersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersList.swift; sourceTree = "<group>"; };
 		C4333C662314F29F00E3A504 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C4333C682315207100E3A504 /* AddTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,13 +137,13 @@
 		C4333C3A2313C49F00E3A504 /* MultiTimer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C4333C602313C84100E3A504 /* Models */,
 				C4333C472313C4A100E3A504 /* Assets.xcassets */,
 				C4333C452313C49F00E3A504 /* ComplicationController.swift */,
 				C4333C3B2313C49F00E3A504 /* ContentView.swift */,
 				C4333C3F2313C49F00E3A504 /* ExtensionDelegate.swift */,
 				C4333C3D2313C49F00E3A504 /* HostingController.swift */,
 				C4333C4C2313C4A100E3A504 /* Info.plist */,
+				C4333C602313C84100E3A504 /* Models */,
 				C4333C412313C49F00E3A504 /* NotificationController.swift */,
 				C4333C432313C49F00E3A504 /* NotificationView.swift */,
 				C4333C492313C4A100E3A504 /* Preview Content */,
@@ -162,9 +164,10 @@
 		C4333C5B2313C75200E3A504 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4333C682315207100E3A504 /* AddTimer.swift */,
+				C4333C662314F29F00E3A504 /* DetailView.swift */,
 				C4333C5C2313C77C00E3A504 /* MultiView.swift */,
 				C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */,
-				C4333C662314F29F00E3A504 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				C4333C3E2313C49F00E3A504 /* HostingController.swift in Sources */,
 				C4333C3C2313C49F00E3A504 /* ContentView.swift in Sources */,
 				C4333C422313C49F00E3A504 /* NotificationController.swift in Sources */,
+				C4333C692315207100E3A504 /* AddTimer.swift in Sources */,
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
 				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
 				C4333C672314F29F00E3A504 /* DetailView.swift in Sources */,
@@ -567,7 +571,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -579,7 +583,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mesme.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

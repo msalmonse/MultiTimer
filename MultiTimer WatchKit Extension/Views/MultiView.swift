@@ -23,7 +23,7 @@ struct MultiView: View {
             List(timers.list) { timer in
                 Spacer()
                 NavigationLink(
-                    destination: DetailView(timer: timer),
+                    destination: DetailView(timer: timer).environmentObject(self.timers),
                     label: { SingleView(timer: timer, toggle: self.$colorToggle) }
                 )
                 Spacer()
@@ -36,7 +36,7 @@ struct MultiView: View {
 
             NavigationLink(
                 destination: AddTimer().environmentObject(timers),
-                label: { Text("Add Timer") }
+                label: { Text("Add Timer").font(.caption) }
             )
         }
     }

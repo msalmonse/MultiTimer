@@ -10,8 +10,8 @@ colon:
   flexible_right_spacing: true
 
 line_length:
-  warning: 350
   error: 500
+  warning: 400
 
 exclude:
   - ./*/ComplicationController.swift

@@ -84,4 +84,8 @@ class SingleTimer: ObservableObject, Identifiable {
         self.endDate = Date() + duration
         self.status = .inactive
     }
+
+    deinit {
+        tick?.cancel()
+    }
 }

@@ -9,7 +9,13 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @EnvironmentObject var timers: TimersList
     @ObservedObject var timer: SingleTimer
+
+    func dismiss() {
+        mode.wrappedValue.dismiss()
+    }
 
     var body: some View {
         VStack {
@@ -35,6 +41,11 @@ struct DetailView: View {
                 Button(
                     action: { self.timer.end() },
                     label: { Image(systemName: "forward.end.fill") }
+                )
+                Spacer()
+                Button(
+                    action: { self.timers.rmTimer(self.timer); self.dismiss() },
+                    label: { Image(systemName: "clear").foregroundColor(.red) }
                 )
             }
         }

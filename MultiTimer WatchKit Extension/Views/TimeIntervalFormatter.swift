@@ -37,7 +37,7 @@ func formattedTimeInterval(_ interval: TimeInterval) -> some View {
             namedImage(minutes, 100, zeroes: false)
             namedImage(minutes, 10, zeroes: false)
             namedImage(minutes)
-            Text(":").bold().padding(.horizontal, 2)
+            Text(":").bold().padding(.horizontal, 2).foregroundColor(.white)
             namedImage(seconds, 10)
             namedImage(seconds)
         }

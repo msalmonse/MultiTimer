@@ -18,6 +18,14 @@ class TimersList: ObservableObject, Identifiable {
         list.append(SingleTimer(duration).resume())
     }
 
+    func rmTimer(_ timer: SingleTimer) {
+        for index in list.indices where timer.id == list[index].id {
+            timer.passivate()
+            list.remove(at: index)
+            break
+        }
+    }
+
     init(_ list: [SingleTimer] = []) {
         self.list = list
     }

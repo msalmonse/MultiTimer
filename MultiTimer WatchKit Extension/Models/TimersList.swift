@@ -6,7 +6,7 @@
 //  Copyright © 2019 mesme. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 class TimersList: ObservableObject, Identifiable {
     let id = UUID()
@@ -14,8 +14,8 @@ class TimersList: ObservableObject, Identifiable {
     @Published
     var list: [SingleTimer]
 
-    func addTimer(_ duration: TimeInterval) {
-        list.append(SingleTimer(duration).resume())
+    func addTimer(_ duration: TimeInterval, _ color: Color = .clear) {
+        list.append(SingleTimer(duration, color).resume())
     }
 
     func rmTimer(_ timer: SingleTimer) {

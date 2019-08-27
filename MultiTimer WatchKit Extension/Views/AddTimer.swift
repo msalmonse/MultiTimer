@@ -10,11 +10,23 @@ import SwiftUI
 
 fileprivate let minDuration = 1.0
 fileprivate let maxDuration = 60.0
+fileprivate let colors: [Color] = [
+    .red,
+    .green,
+    .blue,
+    .yellow,
+    Color(.cyan)
+]
 
 struct AddTimer: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @ObservedObject var timers: TimersList
     @State var duration: Double = minDuration
+
+    func addTimer(_ color: Color) {
+        timers.addTimer(duration * 60.0, color)
+        dismiss()
+    }
 
     func dismiss() {
         mode.wrappedValue.dismiss()
@@ -26,10 +38,20 @@ struct AddTimer: View {
                 Slider(value: $duration, in: minDuration...maxDuration, step: 1.0)
                 Text("\(duration)")
             }
-            Button(
-                action: { self.timers.addTimer(self.duration * 60.0); self.dismiss() },
-                label: { Text("Add").foregroundColor(.primary) }
-            )
+            HStack {
+                Text("Add with colour:")
+                Spacer()
+            }
+            HStack {
+                ForEach(colors.indices) {index in
+                    Button(
+                        action: { self.addTimer(colors[index]) },
+                        label: {
+                            Image(systemName: "star.fill").foregroundColor(colors[index])
+                        }
+                    )
+                }
+            }
         }
     }
 }

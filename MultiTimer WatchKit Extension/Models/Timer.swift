@@ -9,8 +9,6 @@
 import SwiftUI
 import Combine
 
-let timerPublisher = Timer.publish(every: 0.25, on: .main, in: .default)
-
 enum TimerStatus {
     case active, inactive, ended, passive
 }
@@ -23,7 +21,6 @@ class SingleTimer: ObservableObject, Identifiable {
 
     @Published
     var timeLeft: TimeInterval
-    var lastUpdate = Date()
 
     let duration: TimeInterval
     var endDate: Date
@@ -31,7 +28,6 @@ class SingleTimer: ObservableObject, Identifiable {
     var tick: AnyCancellable? = nil
 
     private func update(_ now: Date) {
-        lastUpdate = now
         if status == .active {
             if endDate > now {
                 timeLeft = now.distance(to: endDate)
@@ -56,8 +52,13 @@ class SingleTimer: ObservableObject, Identifiable {
         if status == .inactive {
             endDate = Date() + timeLeft
             if tick == nil {
-                tick = timerPublisher.autoconnect().sink(receiveValue: {
-                    [weak self] in self?.update($0) }
+                tick = Timer.publish(
+                    every: 0.25,
+                    on: .main,
+                    in: .default
+                ).autoconnect().sink(receiveValue: {
+                        [weak self] in self?.update($0)
+                    }
                 )
             }
             status = .active
@@ -68,11 +69,13 @@ class SingleTimer: ObservableObject, Identifiable {
     func end() {
         status = .ended
         timeLeft = 0
+        tick = nil
     }
 
     func passivate() {
         status = .inactive
         timeLeft = duration
+        tick = nil
     }
 
     init(_ duration: TimeInterval) {

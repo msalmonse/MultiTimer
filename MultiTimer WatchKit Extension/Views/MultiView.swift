@@ -8,8 +8,9 @@
 
 import SwiftUI
 
+fileprivate let blinkRate = 1.6     // period between blinks
+
 fileprivate func blinkOn(_ now: Double) -> Bool {
-    let blinkRate = 1.6
     return now.truncatingRemainder(dividingBy: blinkRate)/blinkRate > 0.5
 }
 
@@ -25,10 +26,8 @@ struct MultiView: View {
                     label: { SingleView(timer: timer, toggle: self.$colorToggle) }
                 )
             }
-
-            Text("").hidden()
             .onReceive(
-                timerPublisher.autoconnect(),
+                Timer.publish(every: blinkRate/4.0, on: .main, in: .default).autoconnect(),
                 perform: { self.colorToggle = blinkOn($0.timeIntervalSince1970) }
             )
         }

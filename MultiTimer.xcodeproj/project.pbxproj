@@ -22,6 +22,8 @@
 		C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5C2313C77C00E3A504 /* MultiView.swift */; };
 		C4333C5F2313C83500E3A504 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C5E2313C83500E3A504 /* Timer.swift */; };
 		C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */; };
+		C4333C652314F00900E3A504 /* TimersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C642314F00800E3A504 /* TimersList.swift */; };
+		C4333C672314F29F00E3A504 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C662314F29F00E3A504 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		C4333C5C2313C77C00E3A504 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
 		C4333C5E2313C83500E3A504 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
+		C4333C642314F00800E3A504 /* TimersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersList.swift; sourceTree = "<group>"; };
+		C4333C662314F29F00E3A504 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 			children = (
 				C4333C5C2313C77C00E3A504 /* MultiView.swift */,
 				C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */,
+				C4333C662314F29F00E3A504 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C4333C5E2313C83500E3A504 /* Timer.swift */,
+				C4333C642314F00800E3A504 /* TimersList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,10 +332,12 @@
 				C4333C422313C49F00E3A504 /* NotificationController.swift in Sources */,
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
 				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
+				C4333C672314F29F00E3A504 /* DetailView.swift in Sources */,
 				C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */,
 				C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */,
 				C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */,
 				C4333C5F2313C83500E3A504 /* Timer.swift in Sources */,
+				C4333C652314F00900E3A504 /* TimersList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

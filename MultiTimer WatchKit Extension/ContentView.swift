@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var timers = TimersList([
+        SingleTimer(100).resume(),
+        SingleTimer(10.9).resume(),
+        SingleTimer(256.3).resume()
+    ])
+
     var body: some View {
         MultiView()
+        .environmentObject(timers)
     }
 }
 

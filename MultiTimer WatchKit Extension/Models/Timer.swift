@@ -12,7 +12,7 @@ import Combine
 let timerPublisher = Timer.publish(every: 0.25, on: .main, in: .default)
 
 enum TimerStatus {
-    case active, inactive, ended
+    case active, inactive, ended, passive
 }
 
 class SingleTimer: ObservableObject, Identifiable {
@@ -23,6 +23,7 @@ class SingleTimer: ObservableObject, Identifiable {
 
     @Published
     var timeLeft: TimeInterval
+    var lastUpdate = Date()
 
     let duration: TimeInterval
     var endDate: Date
@@ -30,6 +31,7 @@ class SingleTimer: ObservableObject, Identifiable {
     var tick: AnyCancellable? = nil
 
     private func update(_ now: Date) {
+        lastUpdate = now
         if status == .active {
             if endDate > now {
                 timeLeft = now.distance(to: endDate)
@@ -39,15 +41,25 @@ class SingleTimer: ObservableObject, Identifiable {
         }
     }
 
-    func pause() {
+    func rewind() {
         status = .inactive
-        tick?.cancel()
+        timeLeft = duration
+        resume()
     }
 
+    func pause() {
+        status = .inactive
+    }
+
+    @discardableResult
     func resume() -> SingleTimer {
         if status == .inactive {
             endDate = Date() + timeLeft
-            tick = timerPublisher.autoconnect().sink(receiveValue: { [weak self] in self?.update($0) })
+            if tick == nil {
+                tick = timerPublisher.autoconnect().sink(receiveValue: {
+                    [weak self] in self?.update($0) }
+                )
+            }
             status = .active
         }
         return self
@@ -58,6 +70,11 @@ class SingleTimer: ObservableObject, Identifiable {
         timeLeft = 0
     }
 
+    func passivate() {
+        status = .inactive
+        timeLeft = duration
+    }
+
     init(_ duration: TimeInterval) {
         self.duration = duration
         self.timeLeft = duration
@@ -65,5 +82,3 @@ class SingleTimer: ObservableObject, Identifiable {
         self.status = .inactive
     }
 }
-
-typealias TimerList = [SingleTimer]

@@ -14,23 +14,24 @@ fileprivate func blinkOn(_ now: Double) -> Bool {
 }
 
 struct MultiView: View {
-    @State var timerList: TimerList = [
-        SingleTimer(100).resume(),
-        SingleTimer(10).resume(),
-        SingleTimer(256.3).resume()
-    ]
     @State var colorToggle: Bool = false
+    @EnvironmentObject var timers: TimersList
 
     var body: some View {
         VStack(spacing: 1) {
-            ForEach(timerList) { timer in
-                SingleView(timer: timer, toggle: self.$colorToggle)
+            ForEach(timers.list) { timer in
+                NavigationLink(
+                    destination: DetailView(timer: timer),
+                    label: { SingleView(timer: timer, toggle: self.$colorToggle) }
+                )
             }
+
+            Text("").hidden()
+            .onReceive(
+                timerPublisher.autoconnect(),
+                perform: { self.colorToggle = blinkOn($0.timeIntervalSince1970) }
+            )
         }
-        .onReceive(
-            timerPublisher.autoconnect(),
-            perform: { self.colorToggle = blinkOn($0.timeIntervalSince1970) }
-        )
     }
 }
 
@@ -41,7 +42,7 @@ struct SingleView: View {
     func nowColor() -> Color {
         switch timer.status {
         case .active: return .primary
-        case .inactive: return .secondary
+        case .inactive, .passive: return .secondary
         case .ended: return toggle ? .red : .secondary
         }
     }

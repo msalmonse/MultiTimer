@@ -1,2 +1,4 @@
 # MultiTimer
-SwiftUI on Apple Watch
+Multiple timers using SwiftUI on Apple Watch
+
+![Main View](Images/main.png "Main View")

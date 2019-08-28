@@ -6,3 +6,6 @@ Multiple timers using SwiftUI on Apple Watch
 
 ## Detail View
 ![Detail View](Images/detail.png "Detail View")
+
+## Add Timer View
+![Add Timer View](Images/add.png "Add Timer View")

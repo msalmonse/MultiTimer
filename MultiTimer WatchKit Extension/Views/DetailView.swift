@@ -19,8 +19,7 @@ struct DetailView: View {
 
     var body: some View {
         VStack {
-            formattedTimeInterval(timer.timeLeft)
-            .font(.largeTitle)
+            formattedTimeInterval(timer.timeLeft, font: .title)
             HStack {
                 Button(
                     action: { self.timer.rewind() },

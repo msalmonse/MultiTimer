@@ -25,6 +25,7 @@
 		C4333C652314F00900E3A504 /* TimersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C642314F00800E3A504 /* TimersList.swift */; };
 		C4333C672314F29F00E3A504 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C662314F29F00E3A504 /* DetailView.swift */; };
 		C4333C692315207100E3A504 /* AddTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C682315207100E3A504 /* AddTimer.swift */; };
+		C4333C6B231641D400E3A504 /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C6A231641D400E3A504 /* Notify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		C4333C642314F00800E3A504 /* TimersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersList.swift; sourceTree = "<group>"; };
 		C4333C662314F29F00E3A504 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		C4333C682315207100E3A504 /* AddTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimer.swift; sourceTree = "<group>"; };
+		C4333C6A231641D400E3A504 /* Notify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				C4333C5E2313C83500E3A504 /* Timer.swift */,
 				C4333C642314F00800E3A504 /* TimersList.swift */,
+				C4333C6A231641D400E3A504 /* Notify.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
 				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
 				C4333C672314F29F00E3A504 /* DetailView.swift in Sources */,
+				C4333C6B231641D400E3A504 /* Notify.swift in Sources */,
 				C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */,
 				C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */,
 				C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */,

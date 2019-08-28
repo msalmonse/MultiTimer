@@ -15,6 +15,10 @@ struct ContentView: View {
         SingleTimer(256.3).resume()
     ])
 
+    init() {
+        authorizeNotifications()
+    }
+
     var body: some View {
         MultiView(timers: timers)
     }

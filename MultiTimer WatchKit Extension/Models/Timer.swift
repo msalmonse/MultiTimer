@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 enum TimerStatus {
-    case active, inactive, ended, passive
+    case active, inactive, ended, notifying
 }
 
 class SingleTimer: ObservableObject, Identifiable {
@@ -34,8 +34,16 @@ class SingleTimer: ObservableObject, Identifiable {
             if endDate > now {
                 timeLeft = now.distance(to: endDate)
             } else {
-                end()
+                notify()
             }
+        }
+    }
+
+    func notify() {
+        if status == .active {
+            status = .notifying
+            sendNotification(for: self)
+            end()
         }
     }
 

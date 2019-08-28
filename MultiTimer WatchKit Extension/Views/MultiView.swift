@@ -55,7 +55,7 @@ struct SingleView: View {
     func nowColor() -> Color {
         switch timer.status {
         case .active: return .primary
-        case .inactive, .passive: return .secondary
+        case .inactive, .notifying: return .secondary
         case .ended: return toggle ? .red : .secondary
         }
     }

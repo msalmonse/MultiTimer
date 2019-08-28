@@ -31,7 +31,7 @@ struct MultiView: View {
                         Spacer()
                     }
                     .listRowPlatterColor(timer.color)
-                    .frame(height: 25)
+                    .frame(height: 20)
                 }
             }
             .listStyle(CarouselListStyle())

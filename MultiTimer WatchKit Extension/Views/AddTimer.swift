@@ -15,7 +15,8 @@ fileprivate let colors: [Color] = [
     .green,
     .blue,
     .yellow,
-    Color(.cyan)
+    Color(.cyan),
+    Color(.magenta)
 ]
 
 struct AddTimer: View {
@@ -34,14 +35,12 @@ struct AddTimer: View {
 
     var body: some View {
         VStack {
-            VStack(spacing: 1) {
+            ZStack {
                 Slider(value: $duration, in: minDuration...maxDuration, step: 1.0)
-                Text("\(duration)")
+                Text("\(Int(duration.rounded(.down)))").font(.caption)
             }
-            HStack {
-                Text("Add with colour:")
-                Spacer()
-            }
+            Spacer()
+            Text("Add with colour:")
             HStack {
                 ForEach(colors.indices) {index in
                     Button(

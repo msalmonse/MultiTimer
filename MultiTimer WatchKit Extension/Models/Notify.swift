@@ -8,6 +8,9 @@
 
 import UserNotifications
 
+fileprivate let actionID = "TimerExpiered"
+fileprivate let categoryID = "TimerExpiredCategory"
+
 enum NotificationsAuthorized {
     case no, maybe, unknown, yes
 }
@@ -20,21 +23,45 @@ func authorizeNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound],
             completionHandler: { (granted, error) in
-                authorized = granted ? .yes : .no
                 if error != nil { print(error!) }
+                if !granted {
+                    authorized = .no
+                } else {
+                    authorized = .yes
+                    categorize()
+                }
             }
-        )
-        UNUserNotificationCenter.current().getNotificationCategories(
-            completionHandler: { print($0) }
         )
     }
 }
+
+fileprivate func categorize() {
+    var actions = [UNNotificationAction]()
+    actions.append(UNNotificationAction(
+            identifier: actionID,
+            title: "Timer has expired",
+            options: [.foreground]
+        )
+    )
+
+    let category = UNNotificationCategory(
+        identifier: categoryID,
+        actions: actions,
+        intentIdentifiers: [],
+        options: []
+    )
+
+    UNUserNotificationCenter.current().setNotificationCategories([category])
+}
+
+fileprivate var timerCache = [String: SingleTimer]()
 
 func sendNotification(for timer: SingleTimer) {
     if authorized == .unknown { authorizeNotifications() }
     if authorized != .yes { return }
 
     let id = timer.id.uuidString
+    timerCache[id] = timer
 
     let formatter = DateFormatter()
     formatter.dateStyle = .none
@@ -44,6 +71,7 @@ func sendNotification(for timer: SingleTimer) {
     content.title = String(format: "%.0f minute timer expired!", timer.duration/60.0)
     content.body = "Timer ended at: " + formatter.string(from: timer.endDate)
     content.sound = .default
+    content.categoryIdentifier = categoryID
 
     let request = UNNotificationRequest(identifier: id, content: content, trigger: nil)
 
@@ -51,4 +79,11 @@ func sendNotification(for timer: SingleTimer) {
             if error != nil { print(error!) }
         }
     )
+}
+
+func uncache(_ id: String) -> SingleTimer? {
+    let ret = timerCache[id]
+    timerCache[id] = nil
+
+    return ret
 }

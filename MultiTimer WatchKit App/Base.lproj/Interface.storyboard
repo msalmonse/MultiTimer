@@ -18,21 +18,28 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Timer expired" numberOfLines="0" id="IdU-wH-bcW"/>
+                        <label width="136" alignment="left" text="Timer expired" textAlignment="center" numberOfLines="0" id="IdU-wH-bcW">
+                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="TimerExpiredCategory" wantsSashBlur="YES" id="JfB-70-Muf">
+                        <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sashColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </notificationCategory>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="hII-Tm-ZiT" kind="relationship" relationship="dynamicNotificationInterface" id="VTJ-CL-i5n"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="187" y="462"/>
+            <point key="canvasLocation" x="187" y="461.42857142857144"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="t0C-hi-KbZ">
             <objects>
-                <controller id="hII-Tm-ZiT" customClass="NotificationController" customModule="MultiTimer_WatchKit_Extension"/>
+                <controller animationDuration="1" id="hII-Tm-ZiT" customClass="NotificationController" customModule="MultiTimer_WatchKit_Extension">
+                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </controller>
             </objects>
             <point key="canvasLocation" x="487" y="462"/>
         </scene>

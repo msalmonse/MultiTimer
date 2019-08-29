@@ -61,7 +61,7 @@ func sendNotification(for timer: SingleTimer) {
     if authorized != .yes { return }
 
     let id = timer.id.uuidString
-    timerCache[id] = CachedTimer(timer)
+    CachedTimer[id] = CachedTimer(timer)
 
     let content = UNMutableNotificationContent()
     content.title = String(format: "%.0f minute timer expired!", timer.duration/60.0)
@@ -75,8 +75,4 @@ func sendNotification(for timer: SingleTimer) {
             if error != nil { print(error!) }
         }
     )
-}
-
-func uncache(_ id: String) -> CachedTimer? {
-    return timerCache[id]
 }

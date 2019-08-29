@@ -13,7 +13,7 @@ struct NotificationView: View {
     let expired: String
 
     init(id: String) {
-        timer = uncache(id)
+        timer = CachedTimer[id]
         expired = timer == nil ? "" : timer!.endDate
     }
 

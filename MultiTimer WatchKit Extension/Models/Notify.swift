@@ -39,7 +39,7 @@ fileprivate func categorize() {
     var actions = [UNNotificationAction]()
     actions.append(UNNotificationAction(
             identifier: actionID,
-            title: "Timer has expired",
+            title: "",
             options: [.foreground]
         )
     )
@@ -54,22 +54,18 @@ fileprivate func categorize() {
     UNUserNotificationCenter.current().setNotificationCategories([category])
 }
 
-fileprivate var timerCache = [String: SingleTimer]()
+fileprivate var timerCache = [String: CachedTimer]()
 
 func sendNotification(for timer: SingleTimer) {
     if authorized == .unknown { authorizeNotifications() }
     if authorized != .yes { return }
 
     let id = timer.id.uuidString
-    timerCache[id] = timer
-
-    let formatter = DateFormatter()
-    formatter.dateStyle = .none
-    formatter.timeStyle = .medium
+    timerCache[id] = CachedTimer(timer)
 
     let content = UNMutableNotificationContent()
     content.title = String(format: "%.0f minute timer expired!", timer.duration/60.0)
-    content.body = "Timer ended at: " + formatter.string(from: timer.endDate)
+    content.body = "Timer ended at: " + timer.formattedEndDate
     content.sound = .default
     content.categoryIdentifier = categoryID
 
@@ -81,9 +77,6 @@ func sendNotification(for timer: SingleTimer) {
     )
 }
 
-func uncache(_ id: String) -> SingleTimer? {
-    let ret = timerCache[id]
-    timerCache[id] = nil
-
-    return ret
+func uncache(_ id: String) -> CachedTimer? {
+    return timerCache[id]
 }

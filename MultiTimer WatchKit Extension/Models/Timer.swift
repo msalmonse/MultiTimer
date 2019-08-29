@@ -14,6 +14,8 @@ enum TimerStatus {
 }
 
 class SingleTimer: ObservableObject, Identifiable {
+    private static let formatter = DateFormatter()
+
     var id = UUID()
 
     @Published
@@ -24,6 +26,12 @@ class SingleTimer: ObservableObject, Identifiable {
 
     let duration: TimeInterval
     var endDate: Date
+    var formattedEndDate: String {
+        Self.formatter.dateStyle = .none
+        Self.formatter.timeStyle = .medium
+
+        return Self.formatter.string(from: endDate)
+    }
 
     let color: Color
 

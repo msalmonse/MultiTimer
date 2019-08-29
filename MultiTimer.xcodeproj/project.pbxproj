@@ -15,7 +15,6 @@
 		C4333C3E2313C49F00E3A504 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C3D2313C49F00E3A504 /* HostingController.swift */; };
 		C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C3F2313C49F00E3A504 /* ExtensionDelegate.swift */; };
 		C4333C422313C49F00E3A504 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C412313C49F00E3A504 /* NotificationController.swift */; };
-		C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C432313C49F00E3A504 /* NotificationView.swift */; };
 		C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C452313C49F00E3A504 /* ComplicationController.swift */; };
 		C4333C482313C4A100E3A504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4333C472313C4A100E3A504 /* Assets.xcassets */; };
 		C4333C4B2313C4A100E3A504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4333C4A2313C4A100E3A504 /* Preview Assets.xcassets */; };
@@ -26,6 +25,8 @@
 		C4333C672314F29F00E3A504 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C662314F29F00E3A504 /* DetailView.swift */; };
 		C4333C692315207100E3A504 /* AddTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C682315207100E3A504 /* AddTimer.swift */; };
 		C4333C6B231641D400E3A504 /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333C6A231641D400E3A504 /* Notify.swift */; };
+		C49867BB2317AB27009B2C16 /* CachedTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49867BA2317AB27009B2C16 /* CachedTimer.swift */; };
+		C49867BD2317AE21009B2C16 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49867BC2317AE20009B2C16 /* NotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,6 @@
 		C4333C3D2313C49F00E3A504 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		C4333C3F2313C49F00E3A504 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		C4333C412313C49F00E3A504 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		C4333C432313C49F00E3A504 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C4333C452313C49F00E3A504 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		C4333C472313C4A100E3A504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4333C4A2313C4A100E3A504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -94,6 +94,8 @@
 		C4333C662314F29F00E3A504 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		C4333C682315207100E3A504 /* AddTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimer.swift; sourceTree = "<group>"; };
 		C4333C6A231641D400E3A504 /* Notify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notify.swift; sourceTree = "<group>"; };
+		C49867BA2317AB27009B2C16 /* CachedTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedTimer.swift; sourceTree = "<group>"; };
+		C49867BC2317AE20009B2C16 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,6 @@
 				C4333C4C2313C4A100E3A504 /* Info.plist */,
 				C4333C602313C84100E3A504 /* Models */,
 				C4333C412313C49F00E3A504 /* NotificationController.swift */,
-				C4333C432313C49F00E3A504 /* NotificationView.swift */,
 				C4333C492313C4A100E3A504 /* Preview Content */,
 				C4333C4D2313C4A100E3A504 /* PushNotificationPayload.apns */,
 				C4333C5B2313C75200E3A504 /* Views */,
@@ -169,6 +170,7 @@
 				C4333C682315207100E3A504 /* AddTimer.swift */,
 				C4333C662314F29F00E3A504 /* DetailView.swift */,
 				C4333C5C2313C77C00E3A504 /* MultiView.swift */,
+				C49867BC2317AE20009B2C16 /* NotificationView.swift */,
 				C4333C6223141C8900E3A504 /* TimeIntervalFormatter.swift */,
 			);
 			path = Views;
@@ -177,9 +179,10 @@
 		C4333C602313C84100E3A504 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C49867BA2317AB27009B2C16 /* CachedTimer.swift */,
+				C4333C6A231641D400E3A504 /* Notify.swift */,
 				C4333C5E2313C83500E3A504 /* Timer.swift */,
 				C4333C642314F00800E3A504 /* TimersList.swift */,
-				C4333C6A231641D400E3A504 /* Notify.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,10 +341,11 @@
 				C4333C422313C49F00E3A504 /* NotificationController.swift in Sources */,
 				C4333C692315207100E3A504 /* AddTimer.swift in Sources */,
 				C4333C402313C49F00E3A504 /* ExtensionDelegate.swift in Sources */,
-				C4333C442313C49F00E3A504 /* NotificationView.swift in Sources */,
+				C49867BB2317AB27009B2C16 /* CachedTimer.swift in Sources */,
 				C4333C672314F29F00E3A504 /* DetailView.swift in Sources */,
 				C4333C6B231641D400E3A504 /* Notify.swift in Sources */,
 				C4333C5D2313C77C00E3A504 /* MultiView.swift in Sources */,
+				C49867BD2317AE21009B2C16 /* NotificationView.swift in Sources */,
 				C4333C6323141C8900E3A504 /* TimeIntervalFormatter.swift in Sources */,
 				C4333C462313C49F00E3A504 /* ComplicationController.swift in Sources */,
 				C4333C5F2313C83500E3A504 /* Timer.swift in Sources */,

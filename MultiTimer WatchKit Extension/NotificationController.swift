@@ -12,8 +12,15 @@ import UserNotifications
 
 class NotificationController: WKUserNotificationHostingController<NotificationView> {
 
+    var notificationID: String
+
+    override init() {
+        self.notificationID = ""
+        super.init()
+    }
+
     override var body: NotificationView {
-        return NotificationView()
+        return NotificationView(id: notificationID)
     }
 
     override func willActivate() {
@@ -27,6 +34,6 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
     }
 
     override func didReceive(_ notification: UNNotification) {
-        print(notification.request.identifier)
+        self.notificationID = notification.request.identifier
     }
 }
